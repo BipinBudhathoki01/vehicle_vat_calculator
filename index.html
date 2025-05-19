@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagmati Province Vehicle Tax Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bagmati Province Vehicle Tax Calculator</h1>
+
+        <div class="calculator-form">
+            <div class="form-group">
+                <label for="vehicleType">Vehicle Type:</label>
+                <select id="vehicleType">
+                    <option value="two-wheeler-petrol">Two Wheeler (Petrol)</option>
+                    <option value="two-wheeler-electric">Two Wheeler (Electric)</option>
+                    <option value="four-wheeler-petrol">Four Wheeler (Petrol)</option>
+                    <option value="four-wheeler-electric">Four Wheeler (Electric)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="manufactureYear">Year of Manufacture (A.D.):</label>
+                <select id="manufactureYear">
+                    <!-- Years will be populated by JavaScript -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="engineCapacity" id="capacityLabel">Engine Capacity (CC):</label>
+                <input type="number" id="engineCapacity" min="0" value="0">
+            </div>
+
+            <div class="form-group">
+                <label for="lastRenewDate">Last Renew Date (B.S. YYYY/MM/DD):</label>
+                <input type="text" id="lastRenewDate" placeholder="e.g., 2080/12/15">
+                <p class="date-format-note">Format: YYYY/MM/DD</p>
+            </div>
+
+            <div class="form-group">
+                <label for="currentRenewDate">Current Renew Date (B.S. YYYY/MM/DD):</label>
+                <input type="text" id="currentRenewDate" placeholder="e.g., 2081/01/10">
+                <p class="date-format-note">Format: YYYY/MM/DD</p>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="thirdPartyInsurance">
+                <label for="thirdPartyInsurance">Add Third Party Insurance</label>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="applyDiscount">
+                <label for="applyDiscount">Apply 16% fine discount (for eligible periods 2072/73 to 2079/80)</label>
+            </div>
+
+            <button id="calculateBtn">Calculate Tax</button>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="results" id="results">
+            <h2>Calculation Summary</h2>
+            <div class="summary-item">
+                <span>Base Tax:</span>
+                <span id="baseTaxResult">Rs. 0</span>
+            </div>
+             <div class="summary-item">
+                <span>Renewal Charges:</span>
+                <span id="renewalChargesResult">Rs. 0</span>
+            </div>
+             <div class="summary-item">
+                <span>Fine:</span>
+                <span id="fineResult">Rs. 0</span>
+            </div>
+             <div class="summary-item" id="insuranceItem" style="display: none;">
+                <span>Third Party Insurance:</span>
+                <span id="insuranceResult">Rs. 0</span>
+            </div>
+            <div class="summary-item total">
+                <span>Total Payable:</span>
+                <span id="totalResult">Rs. 0</span>
+            </div>
+        </div>
+
+        <div class="note">
+            <p>Note: Copy of Citizenship / Licence / PAN / Voter ID / Passport is mandatory during payment.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
